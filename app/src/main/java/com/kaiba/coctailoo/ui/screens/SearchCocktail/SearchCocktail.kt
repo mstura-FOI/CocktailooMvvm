@@ -23,11 +23,16 @@ fun SearchCocktail(viewModel: SearchCocktailViewModel){
             Text(text = "Search")
         }
         LazyColumn(content = {
-            viewModel.data.value?.let {
-                items(it.drinks){
-                    Text(text = it.strDrink)
+            try {
+                viewModel.data.value?.let {
+                    items(it.drinks){
+                        Text(text = it.strDrink)
+                    }
                 }
+            }catch (err:Exception){
+
             }
+
         })
     }
 }
